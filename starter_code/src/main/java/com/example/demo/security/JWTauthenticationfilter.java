@@ -56,6 +56,15 @@ public class JWTauthenticationfilter extends UsernamePasswordAuthenticationFilte
         }
     }
 
+
+
+    @Override
+    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
+
+        log.error("ERROR: Authentication attempt failed. {} ", failed.getMessage());
+        super.unsuccessfulAuthentication(request, response, failed);
+    }
+
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
 
@@ -65,12 +74,5 @@ public class JWTauthenticationfilter extends UsernamePasswordAuthenticationFilte
                 .sign(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()));
         response.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
         log.info("ALERT:User {} authenticated, JWT issued," ,  ((User) authResult.getPrincipal()).getUsername());
-    }
-
-    @Override
-    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
-
-        log.error("ERROR: Authentication attempt failed. {} ", failed.getMessage());
-        super.unsuccessfulAuthentication(request, response, failed);
     }
 }

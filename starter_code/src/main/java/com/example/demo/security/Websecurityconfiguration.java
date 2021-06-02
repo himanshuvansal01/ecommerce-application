@@ -25,17 +25,7 @@ public class Websecurityconfiguration extends WebSecurityConfigurerAdapter {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
 
-        http.cors().and().csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.POST,SecurityConstants.Sign_UP_URL).permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .addFilter(new JWTauthenticationfilter(authenticationManager()))
-                .addFilter(new JWTauthenticationverificationfilter(authenticationManager()))
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-    }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -47,5 +37,17 @@ public class Websecurityconfiguration extends WebSecurityConfigurerAdapter {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
         return source;
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+
+        http.cors().and().csrf().disable().authorizeRequests()
+                .antMatchers(HttpMethod.POST,SecurityConstants.Sign_UP_URL).permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .addFilter(new JWTauthenticationfilter(authenticationManager()))
+                .addFilter(new JWTauthenticationverificationfilter(authenticationManager()))
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 }

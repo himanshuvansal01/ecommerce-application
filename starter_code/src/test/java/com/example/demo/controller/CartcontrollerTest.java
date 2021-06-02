@@ -48,19 +48,7 @@ public class CartcontrollerTest {
         item.setDescription("A widget that is round");
         when(itemRepository.findById(1L)).thenReturn(java.util.Optional.of(item));
     }
-    @Test
-    public void addToCart(){
-        ModifyCartRequest modifyCartRequest = new ModifyCartRequest();
-        modifyCartRequest.setItemId(1L);
-        modifyCartRequest.setQuantity(1);
-        modifyCartRequest.setUsername("Himanshu");
-        ResponseEntity<Cart> cartResponseEntity = cartController.addTocart(modifyCartRequest);
-        assertNotNull(cartResponseEntity);
-        assertEquals(200, cartResponseEntity.getStatusCodeValue());
-        Cart cart = cartResponseEntity.getBody();
-        assertNotNull(cart);
-        assertEquals(BigDecimal.valueOf(2.99), cart.getTotal());
-    }
+
     @Test
     public void removeItemFromCart() {
         // Set up test by adding two items to cart.
@@ -82,6 +70,21 @@ public class CartcontrollerTest {
         assertNotNull(cart);
         assertEquals(BigDecimal.valueOf(2.99), cart.getTotal());
     }
+
+    @Test
+    public void addToCart(){
+        ModifyCartRequest modifyCartRequest = new ModifyCartRequest();
+        modifyCartRequest.setItemId(1L);
+        modifyCartRequest.setQuantity(1);
+        modifyCartRequest.setUsername("Himanshu");
+        ResponseEntity<Cart> cartResponseEntity = cartController.addTocart(modifyCartRequest);
+        assertNotNull(cartResponseEntity);
+        assertEquals(200, cartResponseEntity.getStatusCodeValue());
+        Cart cart = cartResponseEntity.getBody();
+        assertNotNull(cart);
+        assertEquals(BigDecimal.valueOf(2.99), cart.getTotal());
+    }
+
     @Test
     public void invalidUserRemovesItems() {
         ModifyCartRequest modifyCartRequest = new ModifyCartRequest();

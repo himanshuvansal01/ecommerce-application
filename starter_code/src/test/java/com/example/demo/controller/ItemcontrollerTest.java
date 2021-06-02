@@ -47,25 +47,6 @@ public class ItemcontrollerTest {
 
     }
 
-    @Test
-    public void get_all_Items(){
-
-        ResponseEntity<List<Item>> responseEntity =  itemController.getItems();
-        assertNotNull(responseEntity);
-        assertEquals(200, responseEntity.getStatusCodeValue());
-        List<Item> items = responseEntity.getBody();
-        assertNotNull(items);
-        assertEquals(1,items.size());
-    }
-
-    @Test
-    public void get_item_by_id(){
-        ResponseEntity<Item> responseEntity = itemController.getItemById(1L);
-        assertNotNull(responseEntity);
-        assertEquals(200, responseEntity.getStatusCodeValue());
-        Item item = responseEntity.getBody();
-        assertNotNull(item);
-    }
 
     @Test
     public void get_item_by_id_not_found(){
@@ -93,5 +74,26 @@ public class ItemcontrollerTest {
         assertEquals(404, responseEntity.getStatusCodeValue());
 
     }
+
+    @Test
+    public void get_all_Items(){
+
+        ResponseEntity<List<Item>> responseEntity =  itemController.getItems();
+        assertNotNull(responseEntity);
+        assertEquals(200, responseEntity.getStatusCodeValue());
+        List<Item> items = responseEntity.getBody();
+        assertNotNull(items);
+        assertEquals(1,items.size());
+    }
+
+    @Test
+    public void get_item_by_id(){
+        ResponseEntity<Item> responseEntity = itemController.getItemById(1L);
+        assertNotNull(responseEntity);
+        assertEquals(200, responseEntity.getStatusCodeValue());
+        Item item = responseEntity.getBody();
+        assertNotNull(item);
+    }
+
 
 }

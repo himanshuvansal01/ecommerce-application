@@ -57,23 +57,7 @@ public class OrdercontrollerTest {
         when(userRepository.findByUsername("vansal")).thenReturn(null);
     }
 
-    @Test
-    public void submit_order(){
-        ResponseEntity<UserOrder> userOrderResponseEntity = orderController.submit("Himanshuvansal");
-        assertNotNull(userOrderResponseEntity);
-        assertEquals(200, userOrderResponseEntity.getStatusCodeValue());
-        UserOrder userOrder = userOrderResponseEntity.getBody();
-        assertNotNull(userOrder);
-        assertEquals(1, userOrder.getItems().size());
-    }
 
-    @Test
-    public void submit_order_User_Not_Found(){
-        ResponseEntity<UserOrder> responseEntity = orderController.submit("vansal");
-        assertNotNull(responseEntity);
-        assertEquals(404, responseEntity.getStatusCodeValue());
-
-    }
 
     @Test
     public void get_orders_For_User(){
@@ -91,6 +75,24 @@ public class OrdercontrollerTest {
         assertNotNull(responseEntity);
         assertEquals(404,responseEntity.getStatusCodeValue());
 
+
+    }
+
+    @Test
+    public void submit_order(){
+        ResponseEntity<UserOrder> userOrderResponseEntity = orderController.submit("Himanshuvansal");
+        assertNotNull(userOrderResponseEntity);
+        assertEquals(200, userOrderResponseEntity.getStatusCodeValue());
+        UserOrder userOrder = userOrderResponseEntity.getBody();
+        assertNotNull(userOrder);
+        assertEquals(1, userOrder.getItems().size());
+    }
+
+    @Test
+    public void submit_order_User_Not_Found(){
+        ResponseEntity<UserOrder> responseEntity = orderController.submit("vansal");
+        assertNotNull(responseEntity);
+        assertEquals(404, responseEntity.getStatusCodeValue());
 
     }
 

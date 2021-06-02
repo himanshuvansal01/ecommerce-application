@@ -33,7 +33,8 @@ public class UsercontrollerTest {
         Cart cart = new Cart();
         user.setId(0);
         user.setUsername("Himanshu");
-//    user.setPassword("testPassword");
+        user.setPassword("vansal");
+
         user.setCart(cart);
         when(userRepository.findByUsername("Himanshu")).thenReturn(user);
         when(userRepository.findById(0L)).thenReturn(java.util.Optional.of(user));
@@ -42,8 +43,11 @@ public class UsercontrollerTest {
     @Test
     public void createUser(){
 
+        when(passwordEncoder.encode("vansal")).thenReturn("vansal123");
         CreateUserRequest createUserRequest = new CreateUserRequest();
         createUserRequest.setUsername("Himanshu");
+        createUserRequest.setPassword("vansal");
+        createUserRequest.setConfirmPassword("vansal");
         ResponseEntity<User> responseEntity = userController.createUser(createUserRequest);
         assertNotNull(responseEntity);
         assertEquals(200, responseEntity.getStatusCodeValue());
@@ -51,7 +55,10 @@ public class UsercontrollerTest {
         assertNotNull(user);
         assertEquals(0, user.getId());
         assertEquals("Himanshu", user.getUsername());
+        assertEquals("vansal123", user.getPassword());
     }
+
+
     @Test
     public void findUserByUsername(){
         ResponseEntity<User> userResponseEntity = userController.findByUserName("Himanshu");
@@ -78,8 +85,8 @@ public class UsercontrollerTest {
     }
     @Test
     public void findUserByIdNotFound(){
-        // TODO this isnt working so lekker
-        ResponseEntity<User> userResponseEntity = userController.findById(999L);
+
+        final ResponseEntity<User> userResponseEntity = userController.findById(999L);
         System.out.println(userResponseEntity);
         assertNotNull(userResponseEntity);
         assertEquals(404, userResponseEntity.getStatusCodeValue());
