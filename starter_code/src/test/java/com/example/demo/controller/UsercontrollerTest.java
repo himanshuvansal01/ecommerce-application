@@ -80,7 +80,6 @@ public class UsercontrollerTest {
     }
     @Test
     public void findUserByIdNotFound(){
-        // TODO this isnt working so lekker
         ResponseEntity<User> userResponseEntity = userController.findById(999L);
         System.out.println(userResponseEntity);
         assertNotNull(userResponseEntity);
