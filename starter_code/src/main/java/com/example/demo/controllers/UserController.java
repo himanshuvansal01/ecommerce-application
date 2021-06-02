@@ -39,7 +39,8 @@ public class UserController {
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 
-
+	public UserController() {
+	}
 
 	@GetMapping("/id/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id) {
@@ -63,7 +64,7 @@ public class UserController {
 		cartRepository.save(cart);
 		user.setCart(cart);
 
-		if( createUserRequest.getPassword().length() <= 6 ||
+		if( createUserRequest.getPassword().length() <= 8 ||
 		!createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword())){
 			log.error("ERROR: Cannot create user {} because the password is invalid",  createUserRequest.getUsername());
 			return ResponseEntity.badRequest().build();

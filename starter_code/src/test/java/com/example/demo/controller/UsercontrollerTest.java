@@ -25,7 +25,7 @@ public class UsercontrollerTest {
     private BCryptPasswordEncoder passwordEncoder = mock(BCryptPasswordEncoder.class);
     @Before
     public void setUp() {
-        userController = new UserController(null,null,null);
+        userController = new UserController();
         TestUtils.injectObjects(userController, "userRepository", userRepository);
         TestUtils.injectObjects(userController, "cartRepository", cartRepository);
         TestUtils.injectObjects(userController, "bCryptPasswordEncoder", passwordEncoder);
@@ -33,21 +33,19 @@ public class UsercontrollerTest {
         Cart cart = new Cart();
         user.setId(0);
         user.setUsername("Himanshu");
-        user.setPassword("vansal");
-
+        user.setPassword("vansal1332");
         user.setCart(cart);
         when(userRepository.findByUsername("Himanshu")).thenReturn(user);
         when(userRepository.findById(0L)).thenReturn(java.util.Optional.of(user));
-        when(userRepository.findByUsername("vansal")).thenReturn(null);
+        when(userRepository.findByUsername("test")).thenReturn(null);
     }
     @Test
     public void createUser(){
 
-        when(passwordEncoder.encode("vansal")).thenReturn("vansal123");
         CreateUserRequest createUserRequest = new CreateUserRequest();
         createUserRequest.setUsername("Himanshu");
-        createUserRequest.setPassword("vansal");
-        createUserRequest.setConfirmPassword("vansal");
+        createUserRequest.setPassword("vansal1332");
+        createUserRequest.setConfirmPassword("vansal1332");
         ResponseEntity<User> responseEntity = userController.createUser(createUserRequest);
         assertNotNull(responseEntity);
         assertEquals(200, responseEntity.getStatusCodeValue());
@@ -55,10 +53,7 @@ public class UsercontrollerTest {
         assertNotNull(user);
         assertEquals(0, user.getId());
         assertEquals("Himanshu", user.getUsername());
-        assertEquals("vansal123", user.getPassword());
     }
-
-
     @Test
     public void findUserByUsername(){
         ResponseEntity<User> userResponseEntity = userController.findByUserName("Himanshu");
@@ -70,7 +65,7 @@ public class UsercontrollerTest {
     }
     @Test
     public void findUserByUserNameNotFound(){
-        ResponseEntity<User> userResponseEntity = userController.findByUserName("vansal");
+        ResponseEntity<User> userResponseEntity = userController.findByUserName("test");
         assertNotNull(userResponseEntity);
         assertEquals(404, userResponseEntity.getStatusCodeValue());
     }
@@ -85,12 +80,10 @@ public class UsercontrollerTest {
     }
     @Test
     public void findUserByIdNotFound(){
-
-        final ResponseEntity<User> userResponseEntity = userController.findById(999L);
+        // TODO this isnt working so lekker
+        ResponseEntity<User> userResponseEntity = userController.findById(999L);
         System.out.println(userResponseEntity);
         assertNotNull(userResponseEntity);
         assertEquals(404, userResponseEntity.getStatusCodeValue());
     }
 }
-
-

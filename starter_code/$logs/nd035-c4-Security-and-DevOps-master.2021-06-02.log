@@ -2279,3 +2279,83 @@ Unconditional classes:
 21:23:19.964 {HikariPool-1 connection closer} DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Closing connection conn9: url=jdbc:h2:mem:bootapp user=SA: (connection evicted)
 21:23:19.964 {Thread-4} DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
 21:23:19.965 {Thread-4} INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+21:34:10.995 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 999
+21:34:11.016 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username medo
+21:34:11.017 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username demo
+21:34:11.019 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 0
+21:34:11.020 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@24bdb479
+21:36:17.270 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 999
+21:36:17.291 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username medo
+21:36:17.294 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username demo
+21:36:17.307 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 0
+21:36:17.315 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@1992eaf4
+21:36:17.316 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+21:36:55.821 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 999
+21:36:55.837 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username vansal
+21:36:55.839 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username Himanshu
+21:36:55.841 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 0
+21:36:55.851 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@7db82169
+21:36:55.851 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+21:37:12.468 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 999
+21:37:12.481 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username vansal
+21:37:12.483 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username Himanshu
+21:37:12.484 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 0
+21:37:12.487 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@24bdb479
+21:37:12.488 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+21:38:12.472 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 999
+21:38:12.485 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username vansal
+21:38:12.487 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username Himanshu
+21:38:12.488 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 0
+21:38:12.489 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@24bdb479
+21:38:12.490 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+21:38:55.774 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@2692b61e
+21:38:55.775 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+21:39:35.360 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@2692b61e
+21:39:35.361 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+21:40:04.384 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@2692b61e
+21:40:04.386 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+21:42:25.340 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@426b6a74
+21:42:25.343 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+21:43:18.030 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@426b6a74
+21:43:18.031 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+21:44:50.437 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 999
+21:44:50.451 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username vansal
+21:44:50.454 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username Himanshu
+21:44:50.457 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 0
+21:44:50.461 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@346939bf
+21:44:50.462 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+21:45:24.662 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 999
+21:45:24.672 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username vansal
+21:45:24.673 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username Himanshu
+21:45:24.675 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 0
+21:45:24.677 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@346939bf
+21:45:24.678 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+21:49:10.764 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@47dbb1e2
+21:49:10.766 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+22:17:34.937 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@426b6a74
+22:17:34.940 {main} ERROR c.e.demo.controllers.UserController - ERROR: Cannot create user Himanshu because the password is invalid
+22:18:46.044 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 999
+22:18:46.057 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username medo
+22:18:46.058 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username demo
+22:18:46.061 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 0
+22:18:46.064 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@24bdb479
+22:20:10.653 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@2692b61e
+22:20:10.656 {main} INFO  c.e.demo.controllers.UserController - ALERT: New user demo created
+22:20:18.259 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 999
+22:20:18.274 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username medo
+22:20:18.276 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username demo
+22:20:18.282 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 0
+22:20:18.285 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@24bdb479
+22:20:18.289 {main} INFO  c.e.demo.controllers.UserController - ALERT: New user demo created
+22:21:56.634 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 999
+22:21:56.647 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username medo
+22:21:56.649 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username Himanshu
+22:21:56.654 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 0
+22:21:56.657 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@24bdb479
+22:21:56.659 {main} INFO  c.e.demo.controllers.UserController - ALERT: New user Himanshu created
+22:22:18.992 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 999
+22:22:19.004 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username test
+22:22:19.006 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username Himanshu
+22:22:19.007 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 0
+22:22:19.009 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@24bdb479
+22:22:19.010 {main} INFO  c.e.demo.controllers.UserController - ALERT: New user Himanshu created
