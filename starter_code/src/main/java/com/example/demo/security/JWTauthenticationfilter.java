@@ -39,7 +39,7 @@ public class JWTauthenticationfilter extends UsernamePasswordAuthenticationFilte
 
         try{
             User credential = new ObjectMapper().readValue(request.getInputStream(), User.class);
-            log.info("ERROR: Attempting authentication for user {} " , credential.getUsername());
+            log.info("Authentication for user {} " , credential.getUsername());
 
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -73,6 +73,6 @@ public class JWTauthenticationfilter extends UsernamePasswordAuthenticationFilte
                 .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
                 .sign(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()));
         response.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
-        log.info("ALERT:User {} authenticated, JWT issued," ,  ((User) authResult.getPrincipal()).getUsername());
+        log.info("ALERT:User {} authenticated, JWT has been issued," ,  ((User) authResult.getPrincipal()).getUsername());
     }
 }
