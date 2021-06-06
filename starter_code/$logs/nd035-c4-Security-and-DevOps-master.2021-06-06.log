@@ -1,0 +1,6 @@
+13:26:29.423 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 999
+13:26:29.446 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username test
+13:26:29.448 {main} DEBUG c.e.demo.controllers.UserController - findByUserName called with username Himanshu
+13:26:29.448 {main} DEBUG c.e.demo.controllers.UserController - findById called with id 0
+13:26:29.450 {main} DEBUG c.e.demo.controllers.UserController - createUser called with createUserRequest com.example.demo.model.requests.CreateUserRequest@24bdb479
+13:26:29.452 {main} INFO  c.e.demo.controllers.UserController - ALERT: New user Himanshu created

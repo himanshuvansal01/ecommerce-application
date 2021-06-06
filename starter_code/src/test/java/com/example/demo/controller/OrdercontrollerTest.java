@@ -35,10 +35,10 @@ public class OrdercontrollerTest {
 
         Item item = new Item();
         item.setId(1L);
-        item.setName("Round Widget");
-        BigDecimal price = BigDecimal.valueOf(2.99);
+        item.setName("Square Widget");
+        BigDecimal price = BigDecimal.valueOf(1.99);
         item.setPrice(price);
-        item.setDescription("A widget that is round");
+        item.setDescription("A widget that is square");
         List<Item > items = new ArrayList<>();
         items.add(item);
 
@@ -50,7 +50,7 @@ public class OrdercontrollerTest {
         cart.setId(0L);
         cart.setUser(user);
         cart.setItems(items);
-        BigDecimal bigDecimal = BigDecimal.valueOf(2.99);
+        BigDecimal bigDecimal = BigDecimal.valueOf(1.99);
         cart.setTotal(bigDecimal);
         user.setCart(cart);
         when(userRepository.findByUsername("Himanshuvansal")).thenReturn(user);

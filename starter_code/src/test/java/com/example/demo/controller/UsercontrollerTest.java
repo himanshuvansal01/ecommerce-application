@@ -39,21 +39,7 @@ public class UsercontrollerTest {
         when(userRepository.findById(0L)).thenReturn(java.util.Optional.of(user));
         when(userRepository.findByUsername("test")).thenReturn(null);
     }
-    @Test
-    public void createUser(){
 
-        CreateUserRequest createUserRequest = new CreateUserRequest();
-        createUserRequest.setUsername("Himanshu");
-        createUserRequest.setPassword("vansal1332");
-        createUserRequest.setConfirmPassword("vansal1332");
-        ResponseEntity<User> responseEntity = userController.createUser(createUserRequest);
-        assertNotNull(responseEntity);
-        assertEquals(200, responseEntity.getStatusCodeValue());
-        User user = responseEntity.getBody();
-        assertNotNull(user);
-        assertEquals(0, user.getId());
-        assertEquals("Himanshu", user.getUsername());
-    }
     @Test
     public void findUserByUsername(){
         ResponseEntity<User> userResponseEntity = userController.findByUserName("Himanshu");
@@ -68,6 +54,22 @@ public class UsercontrollerTest {
         ResponseEntity<User> userResponseEntity = userController.findByUserName("test");
         assertNotNull(userResponseEntity);
         assertEquals(404, userResponseEntity.getStatusCodeValue());
+    }
+
+    @Test
+    public void createUser(){
+
+        CreateUserRequest createUserRequest = new CreateUserRequest();
+        createUserRequest.setUsername("Himanshu");
+        createUserRequest.setPassword("vansal1332");
+        createUserRequest.setConfirmPassword("vansal1332");
+        ResponseEntity<User> responseEntity = userController.createUser(createUserRequest);
+        assertNotNull(responseEntity);
+        assertEquals(200, responseEntity.getStatusCodeValue());
+        User user = responseEntity.getBody();
+        assertNotNull(user);
+        assertEquals(0, user.getId());
+        assertEquals("Himanshu", user.getUsername());
     }
     @Test
     public void findUserById(){

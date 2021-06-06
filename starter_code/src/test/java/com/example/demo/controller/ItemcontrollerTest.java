@@ -34,13 +34,13 @@ public class ItemcontrollerTest {
         TestUtils.injectObjects(itemController,"itemRepository", itemRepository);
         Item item = new Item();
         item.setId(1L);
-        item.setName("Round Widget");
-        BigDecimal price = BigDecimal.valueOf(2.99);
+        item.setName("Square Widget");
+        BigDecimal price = BigDecimal.valueOf(1.99);
         item.setPrice(price);
-        item.setDescription("A widget that is round");
+        item.setDescription("A widget that is square");
         when(itemRepository.findAll()).thenReturn(Collections.singletonList(item));
         when(itemRepository.findById(1L)).thenReturn(java.util.Optional.of(item));
-        when(itemRepository.findByName("Round Widget")).thenReturn(Collections.singletonList(item));
+        when(itemRepository.findByName("Square Widget")).thenReturn(Collections.singletonList(item));
 
 
 
@@ -58,7 +58,7 @@ public class ItemcontrollerTest {
 
     @Test
     public void get_items_by_name(){
-        ResponseEntity<List<Item>> responseEntity = itemController.getItemsByName("Round Widget");
+        ResponseEntity<List<Item>> responseEntity = itemController.getItemsByName("Square Widget");
         assertNotNull(responseEntity);
         assertEquals(200, responseEntity.getStatusCodeValue());
         List<Item> item = responseEntity.getBody();
@@ -69,7 +69,7 @@ public class ItemcontrollerTest {
 
     @Test
     public void get_items_by_name_not_found(){
-        ResponseEntity<List<Item>> responseEntity = itemController.getItemsByName("Square Widget");
+        ResponseEntity<List<Item>> responseEntity = itemController.getItemsByName("Round Widget");
         assertNotNull(responseEntity);
         assertEquals(404, responseEntity.getStatusCodeValue());
 
