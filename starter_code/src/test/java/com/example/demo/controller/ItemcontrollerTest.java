@@ -35,7 +35,7 @@ public class ItemcontrollerTest {
         Item item = new Item();
         item.setId(1L);
         item.setName("Square Widget");
-        BigDecimal price = BigDecimal.valueOf(1.99);
+        BigDecimal price = BigDecimal.valueOf(1.999);
         item.setPrice(price);
         item.setDescription("A widget that is square");
         when(itemRepository.findAll()).thenReturn(Collections.singletonList(item));
