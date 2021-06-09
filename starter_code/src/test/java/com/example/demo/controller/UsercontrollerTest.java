@@ -32,22 +32,22 @@ public class UsercontrollerTest {
         User user = new User();
         Cart cart = new Cart();
         user.setId(0);
-        user.setUsername("Himanshu");
+        user.setUsername("himanshu");
         user.setPassword("vansal1332");
         user.setCart(cart);
-        when(userRepository.findByUsername("Himanshu")).thenReturn(user);
+        when(userRepository.findByUsername("himanshu")).thenReturn(user);
         when(userRepository.findById(0L)).thenReturn(java.util.Optional.of(user));
         when(userRepository.findByUsername("test")).thenReturn(null);
     }
 
     @Test
     public void findUserByUsername(){
-        ResponseEntity<User> userResponseEntity = userController.findByUserName("Himanshu");
+        ResponseEntity<User> userResponseEntity = userController.findByUserName("himanshu");
         assertNotNull(userResponseEntity);
         assertEquals(200, userResponseEntity.getStatusCodeValue());
         User user = userResponseEntity.getBody();
         assertNotNull(user);
-        assertEquals("Himanshu", user.getUsername());
+        assertEquals("himanshu", user.getUsername());
     }
     @Test
     public void findUserByUserNameNotFound(){
@@ -60,7 +60,7 @@ public class UsercontrollerTest {
     public void createUser(){
 
         CreateUserRequest createUserRequest = new CreateUserRequest();
-        createUserRequest.setUsername("Himanshu");
+        createUserRequest.setUsername("himanshu");
         createUserRequest.setPassword("vansal1332");
         createUserRequest.setConfirmPassword("vansal1332");
         ResponseEntity<User> responseEntity = userController.createUser(createUserRequest);
@@ -69,7 +69,7 @@ public class UsercontrollerTest {
         User user = responseEntity.getBody();
         assertNotNull(user);
         assertEquals(0, user.getId());
-        assertEquals("Himanshu", user.getUsername());
+        assertEquals("himanshu", user.getUsername());
     }
     @Test
     public void findUserById(){
@@ -78,7 +78,7 @@ public class UsercontrollerTest {
         assertEquals(200, userResponseEntity.getStatusCodeValue());
         User user = userResponseEntity.getBody();
         assertNotNull(user);
-        assertEquals("Himanshu", user.getUsername());
+        assertEquals("himanshu", user.getUsername());
     }
     @Test
     public void findUserByIdNotFound(){

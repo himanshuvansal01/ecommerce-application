@@ -6,18 +6,18 @@ public class TestUtils {
 
     public static void injectObjects(Object target, String fieldName, Object toInject){
 
-        boolean WasPrivte = false;
+        boolean wasPrivte = false;
 
         try{
             Field field = target.getClass().getDeclaredField(fieldName);
 
             if(!field.canAccess(target)){
                 field.setAccessible(true);
-                WasPrivte = true;
+                wasPrivte = true;
 
             }
             field.set(target,toInject);
-            if(WasPrivte){
+            if(wasPrivte){
                 field.setAccessible(false);
             }
 

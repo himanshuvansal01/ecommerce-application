@@ -50,7 +50,7 @@ public class JWTauthenticationfilter extends UsernamePasswordAuthenticationFilte
                     )
             );
         } catch (IOException e) {
-            log.error("ERROR: Authentication attempt failed: " + e.getMessage());
+            log.error("ERROR: Your Authentication attempt failed: " + e.getMessage());
             throw new RuntimeException(e);
 
         }
@@ -61,7 +61,7 @@ public class JWTauthenticationfilter extends UsernamePasswordAuthenticationFilte
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
 
-        log.error("ERROR: Authentication attempt failed. {} ", failed.getMessage());
+        log.error("ERROR: Your Authentication attempt failed. {} ", failed.getMessage());
         super.unsuccessfulAuthentication(request, response, failed);
     }
 

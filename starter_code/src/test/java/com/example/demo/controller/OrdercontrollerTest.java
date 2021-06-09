@@ -45,7 +45,7 @@ public class OrdercontrollerTest {
         User user = new User();
         Cart cart = new Cart();
         user.setId(0);
-        user.setUsername("Himanshuvansal");
+        user.setUsername("himanshuvansal");
         user.setPassword("vansal1332");
         cart.setId(0L);
         cart.setUser(user);
@@ -53,7 +53,7 @@ public class OrdercontrollerTest {
         BigDecimal bigDecimal = BigDecimal.valueOf(1.99);
         cart.setTotal(bigDecimal);
         user.setCart(cart);
-        when(userRepository.findByUsername("Himanshuvansal")).thenReturn(user);
+        when(userRepository.findByUsername("himanshuvansal")).thenReturn(user);
         when(userRepository.findByUsername("vansal")).thenReturn(null);
     }
 
@@ -61,7 +61,7 @@ public class OrdercontrollerTest {
 
     @Test
     public void get_orders_For_User(){
-        ResponseEntity<List<UserOrder>> responseEntity = orderController.getOrdersForUser("Himanshuvansal");
+        ResponseEntity<List<UserOrder>> responseEntity = orderController.getOrdersForUser("himanshuvansal");
         assertNotNull(responseEntity);
         assertEquals(200, responseEntity.getStatusCodeValue());
         List<UserOrder> userOrders = responseEntity.getBody();
@@ -80,7 +80,7 @@ public class OrdercontrollerTest {
 
     @Test
     public void submit_order(){
-        ResponseEntity<UserOrder> userOrderResponseEntity = orderController.submit("Himanshuvansal");
+        ResponseEntity<UserOrder> userOrderResponseEntity = orderController.submit("himanshuvansal");
         assertNotNull(userOrderResponseEntity);
         assertEquals(200, userOrderResponseEntity.getStatusCodeValue());
         UserOrder userOrder = userOrderResponseEntity.getBody();
