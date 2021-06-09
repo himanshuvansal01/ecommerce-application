@@ -25,7 +25,7 @@ public class Userdetailsserviceimplementor implements UserDetailsService {
         User user = userRepository.findByUsername(username);
 
         if(user == null){
-            log.error("ERROR: Username {} not found ", username);
+            log.error("ERROR:  Username {} not found ", username);
             throw new UsernameNotFoundException(username);
         }
 
