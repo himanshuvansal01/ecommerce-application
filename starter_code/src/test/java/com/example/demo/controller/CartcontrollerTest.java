@@ -36,10 +36,10 @@ public class CartcontrollerTest {
         User user = new User();
         Cart cart = new Cart();
         user.setId(0L);
-        user.setUsername("Himanshu");
+        user.setUsername("himanshu");
         user.setPassword("Himanshuvansal");
         user.setCart(cart);
-        when(userRepository.findByUsername("Himanshu")).thenReturn(user);
+        when(userRepository.findByUsername("himanshu")).thenReturn(user);
         Item item = new Item();
         item.setId(1L);
         item.setName("Round Widget");
@@ -55,14 +55,14 @@ public class CartcontrollerTest {
         ModifyCartRequest modifyCartRequest = new ModifyCartRequest();
         modifyCartRequest.setItemId(1L);
         modifyCartRequest.setQuantity(2);
-        modifyCartRequest.setUsername("Himanshu");
+        modifyCartRequest.setUsername("himanshu");
         ResponseEntity<Cart> response = cartController.addTocart(modifyCartRequest);
         assertNotNull(response);
         assertEquals(200, response.getStatusCodeValue());
         modifyCartRequest = new ModifyCartRequest();
         modifyCartRequest.setItemId(1L);
         modifyCartRequest.setQuantity(1);
-        modifyCartRequest.setUsername("Himanshu");
+        modifyCartRequest.setUsername("himanshu");
         response = cartController.removeFromcart(modifyCartRequest);
         assertNotNull(response);
         assertEquals(200, response.getStatusCodeValue());
@@ -76,7 +76,7 @@ public class CartcontrollerTest {
         ModifyCartRequest modifyCartRequest = new ModifyCartRequest();
         modifyCartRequest.setItemId(1L);
         modifyCartRequest.setQuantity(1);
-        modifyCartRequest.setUsername("Himanshu");
+        modifyCartRequest.setUsername("himanshu");
         ResponseEntity<Cart> cartResponseEntity = cartController.addTocart(modifyCartRequest);
         assertNotNull(cartResponseEntity);
         assertEquals(200, cartResponseEntity.getStatusCodeValue());
