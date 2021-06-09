@@ -24,11 +24,11 @@ public class JWTauthenticationverificationfilter extends BasicAuthenticationFilt
 
 
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
-        String Token = request.getHeader(SecurityConstants.HEADER_STRING);
-        if(Token != null) {
+        String token = request.getHeader(SecurityConstants.HEADER_STRING);
+        if(token != null) {
             String user = JWT.require(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes(StandardCharsets.UTF_8)))
                     .build()
-                    .verify(Token.replace(SecurityConstants.TOKEN_PREFIX, ""))
+                    .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
                     .getSubject();
 
 
