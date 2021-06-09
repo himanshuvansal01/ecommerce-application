@@ -39,7 +39,7 @@ public class JWTauthenticationfilter extends UsernamePasswordAuthenticationFilte
 
         try{
             User credential = new ObjectMapper().readValue(request.getInputStream(), User.class);
-            log.info("Authentication for user {} " , credential.getUsername());
+            log.info("Checking Authentication for user {} " , credential.getUsername());
 
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -61,7 +61,7 @@ public class JWTauthenticationfilter extends UsernamePasswordAuthenticationFilte
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
 
-        log.error("ERROR: Authentication attempt failed. {} ", failed.getMessage());
+        log.error("ERROR:  Authentication attempt failed. {} ", failed.getMessage());
         super.unsuccessfulAuthentication(request, response, failed);
     }
 
